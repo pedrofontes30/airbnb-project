@@ -6,6 +6,6 @@ class ReviewPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user.has_appointment?(record.lesson) && user != record.lesson.user
   end
 end
