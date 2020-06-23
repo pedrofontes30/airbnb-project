@@ -3,10 +3,9 @@
 .landing_page {
   .banner {
     width: 100vw;
-    height: 100vh;
-    background-color: blue;
-    background: url("https://lifewithoutandy.com/wp-content/uploads/2020/05/IMG_1514.jpg");
-    background-size: cover;
+    img {
+      height: 100%;
+    }
   }
 }
 
@@ -15,8 +14,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 150px;
+  height: 50px;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
+  min-height: 150px;
 }
 
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Futura;
+  color: #fff;
+}
