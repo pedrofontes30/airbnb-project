@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @lessons = Lesson.all
+    @lessons = policy_scope(Lesson).order(created_at: :desc)
   end
 
   def show
