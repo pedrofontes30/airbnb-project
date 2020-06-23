@@ -2,7 +2,10 @@
   <div class="row mt-3">
     <div class="col-12">
       <h2>Surfing lesson at <%= @lesson.location %></h2>
-      <p class='text-muted m-0'><%= @lesson.week_day %> from <%= @lesson.start_time %>:00 to <%= @lesson.end_time %>:00</p>
+      <div class="d-flex justify-content-between">
+        <p class='text-muted m-0'><%= @lesson.week_day %> from <%= @lesson.start_time %>:00 to <%= @lesson.end_time %>:00</p>
+        <p><%= @avg_review %>/5</p>
+      </div>
     </div>
   </div>
   <div class="row">
@@ -32,32 +35,49 @@
   </div>
   <div class="row">
     <div class="col-12">
-      <h4 class='mb-4'>Reviews</h4>
-      <div class='mb-4'>
-        <div class="d-flex align-items-center mb-2">
-          <%= image_tag "teacher.png", alt: "teacher", class: 'avatar-large' %>
-          <div class='ml-3'>
-            <h5 class="mb-0">Name</h5>
-            <p class="mb-0 text-muted">06/06/2020</p>
-          </div>
-        </div>
-        <div class="d-flex justify-content-between">
-          <p>content content content content content content</p>
-          <p>5/5</p>
-        </div>
+      <div class="d-flex justify-content-between">
+        <h4 class='mb-4'>Reviews</h4>
+        <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#reviewModal">
+          Write a review
+        </button>
       </div>
-      <div class='mb-4'>
-        <div class="d-flex align-items-center mb-2">
-          <%= image_tag "teacher.png", alt: "teacher", class: 'avatar-large' %>
-          <div class='ml-3'>
-            <h5 class="mb-0">Name</h5>
-            <p class="mb-0 text-muted">06/06/2020</p>
+      <% @reviews.each do |review| %>
+        <div class='mb-4'>
+          <div class="d-flex align-items-center mb-2">
+            <%= image_tag "teacher.png", alt: "teacher", class: 'avatar-large' %>
+            <div class='ml-3'>
+              <h5 class="mb-0">Name</h5>
+              <p class="mb-0 text-muted"><%= review.created_at %></p>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between">
+            <p><%= review.content %></p>
+            <p><%= review.rating %>/5</p>
           </div>
         </div>
-        <div class="d-flex justify-content-between">
-          <p>content content content content content content</p>
-          <p>4/5</p>
-        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="reviewModal" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reviewModalLabel">Your Review</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for [ @lesson, @review ] do |f| %>
+          <%= f.input :content %>
+          <%= f.input :rating %>
+          <div class="modal-footer">
+            <%= f.button :submit, class: 'btn btn-primary' %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
