@@ -13,10 +13,10 @@
    <p><%=  f.input :age, required:true, label: false, placeholder: "Age" %> </p>
    <p><%=  f.input :role, :collection => %w[Teacher Student], label: false, placeholder: "Role" %></p>
    <%= f.button :submit, "Sign up", id: "signup_button" %>
- </div>
+ </div> <% end %>
+ <%= link_to "Login", new_user_session_path, class: "login_button"%>
 </div>
 
-<% end %>
 
-<%= render "devise/shared/links" %>
-</div>
+
+
