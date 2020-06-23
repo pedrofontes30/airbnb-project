@@ -6,10 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
-               start_time: "9",
-               end_time: "11",
-               week_day: "saturday",
-               location: "Caparica",
-               max_attendees: 5,
-               user_id: 1)
+
+User.create(email: "user@gmail.com", password: "123456")
+
+10.times do
+Lesson.create(description: "Lesson for any beginners who want to have fun and learn the basics of surfing!", start_time: "9", end_time: "11", week_day: "saturday", location: "Caparica", user_id: User.first.id, max_attendees: 5)
+end
+
+
