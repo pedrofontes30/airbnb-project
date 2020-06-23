@@ -5,6 +5,14 @@ class LessonPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
+  def show?
+    true
+  end
+
   def create?
     user.role == 'teacher'
   end
