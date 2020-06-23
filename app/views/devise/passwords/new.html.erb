@@ -1,13 +1,16 @@
-<h2>Forgot your password?</h2>
+<div class="forgot_password">
 
 <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
+    <h2>Forgot your password?</h2>
     <%= f.input :email,
                 required: true,
+                placeholder: "Email",
                 autofocus: true,
                 input_html: { autocomplete: "email" } %>
+  <%= render "devise/shared/links" %>
   </div>
 
   <div class="form-actions">
@@ -15,4 +18,5 @@
   </div>
 <% end %>
 
+</div>
 <%= render "devise/shared/links" %>
