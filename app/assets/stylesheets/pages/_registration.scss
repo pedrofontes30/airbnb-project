@@ -1,0 +1,19 @@
+.registration_page{
+  display: flex;
+  justify-content: center;
+  #new_user {
+    width: 500px;
+    text-align: center;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding: 10px 20px;
+  #signup_button {
+    background-color: red;
+    width: 50%;
+    border-radius: 5px;
+    color: white;
+
+  }
+  }
+}
