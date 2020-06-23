@@ -1,1 +1,30 @@
 // Specific CSS for your home-page
+
+.landing_page {
+  .banner {
+    width: 100vw;
+    img {
+      height: 100%;
+    }
+  }
+}
+
+.footer {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+  min-height: 150px;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: Futura;
+  color: #fff;
+}
