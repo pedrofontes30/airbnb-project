@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
+               start_time: "9",
+               end_time: "11",
+               week_day: "saturday",
+               location: "Caparica",
+               max_attendees: 5,
+               user_id: 1)
