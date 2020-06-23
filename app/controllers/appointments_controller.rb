@@ -1,4 +1,5 @@
 class AppointmentsController < ApplicationController
+
   def create
     @appointment = Appointment.new(lesson_id: params[:lesson_id], user: current_user)
     authorize @appointment
@@ -12,4 +13,5 @@ class AppointmentsController < ApplicationController
     @appointment.destroy
     redirect_to lesson_path(1)
   end
+
 end

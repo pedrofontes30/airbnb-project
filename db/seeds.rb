@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+<<<<<<< HEAD
 Review.destroy_all
 Lesson.destroy_all
 Appointment.destroy_all
@@ -44,3 +45,13 @@ Review.create(content: 'Lots of fun in my first day of surfing!', rating: 5, les
   #   t.index ["email"], name: "index_users_on_email", unique: true
   #   t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   # end
+=======
+
+User.create(email: "user@gmail.com", password: "123456")
+
+10.times do
+Lesson.create(description: "Lesson for any beginners who want to have fun and learn the basics of surfing!", start_time: "9", end_time: "11", week_day: "saturday", location: "Caparica", user_id: User.first.id, max_attendees: 5)
+end
+
+
+>>>>>>> master
