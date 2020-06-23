@@ -1,1 +1,22 @@
 // Specific CSS for your home-page
+
+.landing_page {
+  .banner {
+    width: 100vw;
+    height: 100vh;
+    background-color: blue;
+    background: url("https://lifewithoutandy.com/wp-content/uploads/2020/05/IMG_1514.jpg");
+    background-size: cover;
+  }
+}
+
+.footer {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 150px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+}
+
