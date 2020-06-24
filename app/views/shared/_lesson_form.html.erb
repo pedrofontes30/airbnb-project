@@ -1,5 +1,6 @@
 <div class="modal-body">
   <%= simple_form_for (lesson) do |f| %>
+    <%= f.association :sport %>
     <%= f.input :description %>
     <div class="d-flex justify-content-between">
       <%= f.input :start_time %>
