@@ -3,12 +3,13 @@ class LessonsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    @lesson = Lesson.new
     @lessons = policy_scope(Lesson).order(created_at: :desc)
     @reviews = []
     @lessons.each do |lesson|
-      @reviews = Review.where(lesson: lesson)
+      # lesson[:avg_review] = (@reviews != [] ? avg_review : 0 )
     end
-    @avg_review = avg_review
+    @avg_review = 0
   end
 
   def show
@@ -19,7 +20,7 @@ class LessonsController < ApplicationController
     @appointments = Appointment.where(lesson: @lesson)
     @review = Review.new(lesson: @lesson)
     @reviews = Review.where(lesson: @lesson)
-    @avg_review = avg_review
+    @avg_review = (@reviews != [] ? avg_review : 0 )
     @user_owns_lesson = (@lesson.user == current_user)
   end
 
@@ -28,6 +29,15 @@ class LessonsController < ApplicationController
     authorize @lesson
     @lesson.update(lesson_params)
     redirect_to lesson_path(params[:id])
+  end
+
+  def create
+    # raise
+    @lesson = Lesson.new(lesson_params)
+    @lesson.user = current_user
+    authorize @lesson
+    @lesson.save
+    redirect_to lessons_path
   end
 
   private

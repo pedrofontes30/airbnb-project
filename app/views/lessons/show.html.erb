@@ -9,9 +9,13 @@
           </button>
         <% end %>
       </div>
-      <div class="d-flex justify-content-between">
+      <div class="d-flex justify-content-between mt-2">
         <p class='text-muted m-0'><%= @lesson.week_day %> from <%= @lesson.start_time %>:00 to <%= @lesson.end_time %>:00</p>
-        <p><%= @avg_review %>/5</p>
+        <div class="card-review">
+          <% @avg_review.times do  %>
+            <i class="fas fa-star"></i>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
@@ -94,22 +98,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <%= simple_form_for (@lesson) do |f| %>
-          <%= f.input :description %>
-          <div class="d-flex justify-content-between">
-            <%= f.input :start_time %>
-            <%= f.input :end_time %>
-            <%= f.input :week_day %>
-          </div>
-          <%= f.input :location %>
-          <%= f.input :price %>
-          <%= f.input :max_attendees %>
-          <div class="modal-footer">
-            <%= f.button :submit, class: 'btn btn-primary' %>
-          </div>
-        <% end %>
-      </div>
+      <%= render "shared/form", lesson: @lesson %>
     </div>
   </div>
 </div>
