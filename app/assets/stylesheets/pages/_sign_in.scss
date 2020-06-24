@@ -9,11 +9,20 @@
     border: 1px solid gray;
     border-radius: 5px;
     padding: 10px 20px;
-  #signup_button {
+  #form-actions {
     background-color: red;
     width: 50%;
     border-radius: 5px;
     color: white;
   }
   }
+}
+.centered-links{
+    border-radius: 5px;
+
+    text-align: center;
+    margin: 10px;
+    a {
+    color: black;
+    }
 }
