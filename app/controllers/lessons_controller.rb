@@ -1,9 +1,14 @@
 class LessonsController < ApplicationController
 
-  skip_before_action :authenticate_user!, only: [:index]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @lessons = policy_scope(Lesson).order(created_at: :desc)
+    @reviews = []
+    @lessons.each do |lesson|
+      @reviews = Review.where(lesson: lesson)
+    end
+    @avg_review = avg_review
   end
 
   def show
