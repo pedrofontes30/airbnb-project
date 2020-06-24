@@ -28,3 +28,4 @@ lesson = Lesson.create( description: "Lesson for any beginners who want to have 
 Appointment.create(user: user2, lesson: lesson)
 
 Review.create(content: 'Lots of fun in my first day of surfing!', rating: 5, lesson_id: lesson.id, user: user2)
+

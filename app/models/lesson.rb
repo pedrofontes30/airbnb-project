@@ -6,4 +6,7 @@ class Lesson < ApplicationRecord
   def under_limit?
     Appointment.where(lesson: self).length < max_attendees
   end
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 end

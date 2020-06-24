@@ -9,6 +9,15 @@ class LessonsController < ApplicationController
       @reviews = Review.where(lesson: lesson)
     end
     @avg_review = avg_review
+
+    @lessons = Lesson.all
+
+    @markers = @lessons.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
