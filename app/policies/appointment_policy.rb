@@ -6,7 +6,7 @@ class AppointmentPolicy < ApplicationPolicy
   end
 
   def create?
-    !user.has_appointment?(record.lesson) && user != record.lesson.user
+    !user.has_appointment?(record.lesson) && user != record.lesson.user && record.lesson.under_limit?
   end
 
   def destroy?

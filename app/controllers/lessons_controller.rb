@@ -11,6 +11,7 @@ class LessonsController < ApplicationController
     authorize @lesson
     @user = current_user
     @appointment = Appointment.new(lesson: @lesson)
+    @appointments = Appointment.where(lesson: @lesson)
     @review = Review.new(lesson: @lesson)
     @reviews = Review.where(lesson: @lesson)
     @avg_review = avg_review

@@ -32,9 +32,18 @@
       </div>
     </div>
     <div class="col-5 offset-1 p-0">
-      <div class="card rounded-lg p-3 text-center shadow border-0">
+      <div class="rounded-lg p-3 text-center shadow border-0">
+        <div class="d-flex justify-content-center my-3">
+          <% (@appointments.length).times do %>
+            <%= icon('fas', 'user', class: ' px-1')%>
+          <% end %>
+          <% (@lesson.max_attendees - @appointments.length).times do %>
+          <%= icon('fas', 'user', class: 'px-1', style: 'color: rgb(180,180,180);') %>
+          <% end %>
+        </div>
+        <p> <%= @lesson.max_attendees - @appointments.length %> places remaining</p>
         <h5 class='m-0'>$ <%= @lesson.price %>.00</h5>
-        <% if !@user_owns_lesson %>
+        <% if !@user_owns_lesson && @lesson.under_limit? %>
           <% if @user.has_appointment?(@lesson) %>
             <%= link_to 'Cancel lesson', appointment_path(@user.appointments.find_by lesson: @lesson), method: 'delete', class: "btn btn-danger mt-4 mx-3" %>
           <% else %>
@@ -86,9 +95,11 @@
       <div class="modal-body">
         <%= simple_form_for (@lesson) do |f| %>
           <%= f.input :description %>
-          <%= f.input :start_time %>
-          <%= f.input :end_time %>
-          <%= f.input :week_day %>
+          <div class="d-flex justify-content-between">
+            <%= f.input :start_time %>
+            <%= f.input :end_time %>
+            <%= f.input :week_day %>
+          </div>
           <%= f.input :location %>
           <%= f.input :price %>
           <%= f.input :max_attendees %>
