@@ -5,6 +5,13 @@ class LessonsController < ApplicationController
   def index
     @lesson = Lesson.new
     @lessons = policy_scope(Lesson).order(created_at: :desc)
+    @lessons = Lesson.all
+    @markers = @lessons.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
