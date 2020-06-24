@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_06_24_132336) do
+
+ActiveRecord::Schema.define(version: 2020_06_24_121008) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,9 +39,14 @@ ActiveRecord::Schema.define(version: 2020_06_24_132336) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "price"
+
     t.float "latitude"
     t.float "longitude"
     t.string "address"
+
+    t.bigint "sport_id", null: false
+    t.index ["sport_id"], name: "index_lessons_on_sport_id"
+
     t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
@@ -50,6 +59,14 @@ ActiveRecord::Schema.define(version: 2020_06_24_132336) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["lesson_id"], name: "index_reviews_on_lesson_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "sports", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "description"
+    t.string "photo"
   end
 
   create_table "users", force: :cascade do |t|
@@ -70,6 +87,7 @@ ActiveRecord::Schema.define(version: 2020_06_24_132336) do
 
   add_foreign_key "appointments", "lessons"
   add_foreign_key "appointments", "users"
+  add_foreign_key "lessons", "sports"
   add_foreign_key "lessons", "users"
   add_foreign_key "reviews", "lessons"
   add_foreign_key "reviews", "users"

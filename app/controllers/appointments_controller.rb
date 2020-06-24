@@ -10,6 +10,6 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.find(params[:id])
     authorize @appointment
     @appointment.destroy
-    redirect_to lesson_path(1)
+    redirect_to lessons_path
   end
 end
