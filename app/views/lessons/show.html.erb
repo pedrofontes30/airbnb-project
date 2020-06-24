@@ -28,7 +28,7 @@
       <div class="px-3">
         <div>
           <div class='d-flex justify-content-between align-items-center mb-3'>
-            <h4 class='m-0'><%= @lesson.user.first_name %>'s Surf School</h4>
+            <h4 class='m-0'><%= @lesson.user.first_name + ' ' + @lesson.user.last_name %></h4>
             <%= image_tag "teacher.png", alt: "teacher", class: 'avatar-large' %>
           </div>
         </div>
