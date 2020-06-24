@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Review.destroy_all
-Lesson.destroy_all
 Appointment.destroy_all
+Lesson.destroy_all
 User.destroy_all
 Sport.destroy_all
 
@@ -17,9 +17,12 @@ user2 = User.create(email: 'pedrostudent@gmail.com', password: '123456', first_n
 user3 = User.create(email: 'rezstudent@gmail.com', password: '123456', first_name: 'Rez', last_name: 'Iqbal', age: 27, role: 'student')
 user4 = User.create(email: 'camilastudent@gmail.com', password: '123456', first_name: 'Camila', last_name: 'Silva', age: 25, role: 'student')
 
-surf = Sport.create(name: 'surf')
-skate = Sport.create(name: 'skate')
-yoga = Sport.create(name: 'yoga')
+photos = ["https://lifewithoutandy.com/wp-content/uploads/2020/05/IMG_1514.jpg", "https://images.squarespace-cdn.com/content/v1/59b50ba92994caee6be44de7/1537687213972-4820VG7ZA2V63NTREUME/ke17ZwdGBToddI8pDm48kMFiMyT1nneRMhnmfuSfpxZ7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0mlM0or4nqX7jrn5yWu0hA1QXedaIFqnAbw_tQShHbKg4-O_KAc44ak5jGzrnn7f3A/concretegirlsprom-7982.jpg", "https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"]
+
+surf = Sport.create(name: 'surf', description: 'Have fun surfing with a certified instructor.', photo: photos[0])
+skate = Sport.create(name: 'skate', description: 'Learn to skate today with a certified instructor.', photo: photos[1])
+yoga = Sport.create(name: 'yoga', description: 'Regular practice creates mental clarity and calmness.', photo: [2])
+
 
 lesson = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
                start_time: "9",
