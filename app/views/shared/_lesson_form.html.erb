@@ -1,0 +1,17 @@
+<div class="modal-body">
+  <%= simple_form_for (lesson) do |f| %>
+    <%= f.association :sport %>
+    <%= f.input :description %>
+    <div class="d-flex justify-content-between">
+      <%= f.input :start_time %>
+      <%= f.input :end_time %>
+      <%= f.input :week_day %>
+    </div>
+    <%= f.input :location %>
+    <%= f.input :price %>
+    <%= f.input :max_attendees %>
+    <div class="modal-footer">
+      <%= f.button :submit, class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
