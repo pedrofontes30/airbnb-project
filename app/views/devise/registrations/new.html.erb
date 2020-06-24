@@ -12,7 +12,7 @@
    <p><%= f.input :password_confirmation, required: true, label: false, placeholder: "Password confirmation" %></p>
    <p><%=  f.input :age, required:true, label: false, placeholder: "Age" %> </p>
    <p><%=  f.input :role, :collection => %w[Teacher Student], label: false, placeholder: "Role" %></p>
-   <%= f.button :submit, "Sign up", id: "signup_button" %>
+   <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
  </div> <% end %>
  <%= link_to "Login", new_user_session_path, class: "login_button"%>
 </div>
