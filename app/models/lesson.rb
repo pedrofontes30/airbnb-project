@@ -25,5 +25,4 @@ class Lesson < ApplicationRecord
     end
     avg_review /= reviews.length
   end
-
 end
