@@ -22,7 +22,7 @@
         </li>
       <% else %>
         <% if current_user.role == 'teacher' %>
-          <%= link_to "Create lesson", new_lesson_path, class: "nav-link" %>
+          <%= link_to 'Create lesson', '', class: "nav-link", data: { toggle: "modal", target: "#newModal"} %>
         <% end %>
         <li class="nav-item mx-3">
           <%= link_to "Lessons", lessons_path, class: "nav-link" %>
@@ -36,5 +36,20 @@
         </li>
       <% end %>
     </ul>
+  </div>
+</div>
+
+<!-- New Modal -->
+<div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newModalLabel">New Lesson</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <%= render "shared/lesson_form", lesson: @lesson %>
+    </div>
   </div>
 </div>

@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :define_lesson
 
   include Pundit
 
@@ -27,5 +28,9 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :age, :role])
     devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :age, :role])
+  end
+
+  def define_lesson
+    @lesson = Lesson.new
   end
 end
