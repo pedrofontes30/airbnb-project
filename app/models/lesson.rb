@@ -8,6 +8,10 @@ class Lesson < ApplicationRecord
     Appointment.where(lesson: self).length < max_attendees
   end
 
+
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+
   def avg_review
     avg_review = 0
     reviews = Review.where(lesson: self)
@@ -16,4 +20,5 @@ class Lesson < ApplicationRecord
     end
     avg_review /= reviews.length
   end
+
 end

@@ -9,7 +9,20 @@ class LessonsController < ApplicationController
     @lessons.each do |lesson|
       # lesson[:avg_review] = (@reviews != [] ? avg_review : 0 )
     end
+
+    @avg_review = avg_review
+
+    @lessons = Lesson.all
+
+    @markers = @lessons.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
+
     @avg_review = 0
+
   end
 
   def show
