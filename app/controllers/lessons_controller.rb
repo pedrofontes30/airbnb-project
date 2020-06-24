@@ -5,11 +5,6 @@ class LessonsController < ApplicationController
   def index
     @lesson = Lesson.new
     @lessons = policy_scope(Lesson).order(created_at: :desc)
-    @reviews = []
-    @lessons.each do |lesson|
-      # lesson[:avg_review] = (@reviews != [] ? avg_review : 0 )
-    end
-    @avg_review = 0
   end
 
   def show

@@ -8,9 +8,16 @@ class Lesson < ApplicationRecord
     Appointment.where(lesson: self).length < max_attendees
   end
 
+  def appointments
+    Appointment.where(lesson: self)
+  end
+
   def avg_review
     avg_review = 0
     reviews = Review.where(lesson: self)
+
+    return 0 if reviews == []
+
     reviews.each do |review|
       avg_review += review.rating
     end
