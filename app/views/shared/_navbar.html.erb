@@ -7,90 +7,66 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <!-- Search Bar -->
 
-<!-- Search Bar -->
-
-    <%= form_tag lessons_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find a Lesson"
+  <%= form_tag lessons_path, method: :get do %>
+  <%= text_field_tag :query,
+  params[:query],
+  class: "form-control",
+    placeholder: "Find a Lesson"
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
-  <% end %>
+    <% end %>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if !user_signed_in? %>
-      <li class="nav-item mx-3">
-        <%= link_to "Create lesson", new_user_session_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item mx-3">
-        <%= link_to 'Log in', new_user_session_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item mx-3">
-        <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary" %>
-      </li>
-      <% else %>
-      <% if current_user.role == 'Teacher' %>
-      <%= link_to 'Create lesson', '', class: "nav-link", data: { toggle: "modal", target: "#newModal"} %>
-      <% end %>
-      <li class="nav-item mx-3">
-        <%= link_to "Lessons", lessons_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item nav-item dropdown">
-        <%= link_to '#' do %>
-        <div class="avatar d-flex align-items-center justify-content-center" style='color: white; background-color: rgb(50,50,50);' id="navbarDropdown" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false'>
-          <%= current_user.first_name[0] + current_user.last_name[0] %>
-        </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <% if !user_signed_in? %>
+        <li class="nav-item mx-3">
+          <%= link_to "Create lesson", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item mx-3">
+          <%= link_to 'Log in', new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item mx-3">
+          <%= link_to 'Sign up', new_user_registration_path, class: "btn btn-primary" %>
+        </li>
+        <% else %>
+        <% if current_user.role == 'Teacher' %>
+        <%= link_to 'Create lesson', '', class: "nav-link", data: { toggle: "modal", target: "#newModal"} %>
         <% end %>
-
-      </li>
-      <li class="nav-item dropdown">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          <%= link_to "Another action", "#", class: "dropdown-item" %>
-        </div>
-      </li>
-
         <li class="nav-item mx-3">
           <%= link_to "Lessons", lessons_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
 
-
           <div class="dropdown">
-
-
-
 
             <div class="avatar d-flex align-items-center justify-content-center" id="dropdownMenu" data-toggle="dropdown" aria-haspopup=true aria-expanded=false style='color: white; background-color: rgb(50,50,50);' id="navbarDropdown" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false'>
               <%= current_user.first_name[0] + current_user.last_name[0] %>
             </div>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
-            <a class="dropdown-item" href="#">My profile</a>
-            <a class="dropdown-item" href="#">Log out</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
+              <a class="dropdown-item" href="#">My profile</a>
+              <%= link_to "logout", destroy_user_session_path, method: :delete %>
+            </div>
           </div>
-        </div>
         </li>
 
-      <% end %>
-    </ul>
-  </div>
-</div>
-
-<!-- New Modal -->
-<div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="newModalLabel">New Lesson</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <%= render "shared/lesson_form", lesson: @lesson %>
+        <% end %>
+      </ul>
     </div>
   </div>
-</div>
+
+  <!-- New Modal -->
+  <div class="modal fade" id="newModal" tabindex="-1" role="dialog" aria-labelledby="newModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newModalLabel">New Lesson</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <%= render "shared/lesson_form", lesson: @lesson %>
+      </div>
+    </div>
+  </div>
