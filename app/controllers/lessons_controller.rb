@@ -49,13 +49,19 @@ class LessonsController < ApplicationController
     redirect_to lesson_path(params[:id])
   end
 
-
   def create
     @lesson = Lesson.new(lesson_params)
     @lesson.user = current_user
     authorize @lesson
     @lesson.save
     redirect_to lessons_path
+  end
+
+  def destroy
+    @lesson = Lesson.find(params[:id])
+    authorize @lesson
+    @lesson.destroy
+    redirect_to lessons_path(query: current_user.first_name)
   end
 
   private
