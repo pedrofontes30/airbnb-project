@@ -25,3 +25,59 @@ yoga = Sport.create(name: 'yoga', description: 'Regular practice creates mental 
 
 
 
+
+lesson = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
+               start_time: "9",
+               end_time: "11",
+               week_day: "saturday",
+               location: "Caparica",
+               max_attendees: 5,
+               user: user1,
+               price: 60,
+               sport_id: surf.id)
+
+lesson = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of skateboarding!",
+               start_time: "16",
+               end_time: "18",
+               week_day: "friday",
+               location: "Ericeira",
+               max_attendees: 3,
+               user: user1,
+               price: 40,
+               sport_id: skate.id)
+
+lesson = Lesson.create( description: "Uhhuuuul! Let's go surfing!",
+               start_time: "8",
+               end_time: "10",
+               week_day: "sunday",
+               location: "Carcavelos",
+               max_attendees: 6,
+               user: user1,
+               price: 50,
+               sport_id: surf.id)
+
+lesson = Lesson.create( description: "Advanced yoga positions and meditation session...",
+               start_time: "18",
+               end_time: "19",
+               week_day: "tuesday",
+               location: "Lisbon",
+               max_attendees: 6,
+               user: user1,
+               price: 60,
+               sport_id: yoga.id)
+
+lesson = Lesson.create( description: "Bowl riding lessons in the Quicksilver skatepark!",
+               start_time: "9",
+               end_time: "11",
+               week_day: "thursday",
+               location: "Ericeira",
+               max_attendees: 3,
+               user: user1,
+               price: 30,
+               sport_id: skate.id)
+
+Appointment.create(user: user2, lesson: lesson)
+
+Review.create(content: 'Lots of fun in my first day of surfing!', rating: 5, lesson_id: lesson.id, user: user2)
+
+

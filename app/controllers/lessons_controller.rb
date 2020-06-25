@@ -6,9 +6,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new
     @lessons = policy_scope(Lesson).order(created_at: :desc)
 
-
     @lessons = Lesson.all
-
     @markers = @lessons.map do |flat|
       {
         lat: flat.latitude,

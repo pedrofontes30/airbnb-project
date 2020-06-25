@@ -2,7 +2,7 @@
   <div class="row mt-3">
     <div class="col-12">
       <div class="d-flex justify-content-between align-items-center">
-        <h2>Surfing lesson at <%= @lesson.location %></h2>
+        <h2><%= @lesson.sport.name.capitalize %> lesson at <%= @lesson.location %></h2>
         <% if policy(@lesson).edit? %>
           <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#editModal">
             Edit
@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="row">
-    <div class='lesson-image rounded-lg mb-5 mt-3' style="background-image: url('/assets/surf_lesson_1.jpg');">
+    <div class='lesson-image rounded-lg mb-5 mt-3' style="background-image: url(<%= "/assets/#{@lesson.sport.name}_lesson_1.jpg"%>);">
     </div>
   </div>
   <div class='row border-bottom pb-4 mb-4'>
@@ -28,7 +28,7 @@
       <div class="px-3">
         <div>
           <div class='d-flex justify-content-between align-items-center mb-3'>
-            <h4 class='m-0'><%= @lesson.user.first_name %>'s Surf School</h4>
+            <h4 class='m-0'><%= @lesson.user.first_name + ' ' + @lesson.user.last_name %></h4>
             <%= image_tag "teacher.png", alt: "teacher", class: 'avatar-large' %>
           </div>
         </div>
@@ -49,12 +49,14 @@
         <h5 class='m-0'>$ <%= @lesson.price %>.00</h5>
         <% if @user %>
           <% if !@user_owns_lesson && @lesson.under_limit? %>
-           <% if @user.has_appointment?(@lesson) %>
-            <%= link_to 'Cancel lesson', appointment_path(@user.appointments.find_by lesson: @lesson), method: 'delete', class: "btn btn-danger mt-4 mx-3" %>
-            <% else %>
-            <%= link_to 'Join this lesson', lesson_appointments_path(@lesson), method: 'post', class: "btn btn-primary mt-4 mx-3" %>
-          <% end %>
+            <% if @user.has_appointment?(@lesson) %>
+              <%= link_to 'Cancel lesson', appointment_path(@user.appointments.find_by lesson: @lesson), method: 'delete', class: "btn btn-danger mt-4 mx-3" %>
+              <% else %>
+              <%= link_to 'Join this lesson', lesson_appointments_path(@lesson), method: 'post', class: "btn btn-primary mt-4 mx-3" %>
+            <% end %>
           <% end%>
+        <% else %>
+          <%= link_to 'Join this lesson', new_user_session_path, class: "btn btn-primary mt-4 mx-3" %>
         <% end%>
       </div>
     </div>
