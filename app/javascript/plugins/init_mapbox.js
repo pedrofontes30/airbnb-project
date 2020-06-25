@@ -1,4 +1,5 @@
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 
 
 const fitMapToMarkers = (map, markers) => {
@@ -17,10 +18,18 @@ const initMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
 
+
+      map.on('load', function () {
+          map.resize();
+      });
+
+
     const markers = JSON.parse(mapElement.dataset.markers);
-  markers.forEach((marker) => {
+    markers.forEach((marker) => {
+    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
     new mapboxgl.Marker()
       .setLngLat([ marker.lng, marker.lat ])
+      .setPopup(popup)
       .addTo(map);
     });
 

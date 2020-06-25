@@ -22,10 +22,11 @@ class LessonsController < ApplicationController
     else
       @lessons = Lesson.all
     end
-    @markers = @lessons.map do |flat|
+    @markers = @lessons.map do |lesson|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: lesson.latitude,
+        lng: lesson.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { lesson: lesson })
       }
     end
   end
