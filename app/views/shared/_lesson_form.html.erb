@@ -12,6 +12,7 @@
     <%= f.input :price %>
     <%= f.input :max_attendees %>
     <%= f.input :photo, as: :file %>
+    <%= f.input :difficulty, collection:["Beginner", "Intermediate", "Advanced"]%>
     <div class="modal-footer">
       <%= f.button :submit, class: 'btn btn-primary' %>
     </div>
