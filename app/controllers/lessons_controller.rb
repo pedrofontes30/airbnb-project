@@ -1,11 +1,16 @@
 class LessonsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @lesson = Lesson.new
     @lessons = policy_scope(Lesson).order(created_at: :desc)
-    if params[:query].present?
+
+    if params[:student].present?
+      @appointments = Appointment.where(user: current_user)
+      @lessons = @appointments.map do |appointment|
+        appointment.lesson
+      end
+    elsif params[:query].present?
       sql_query = " \
         lessons.location ILIKE :query \
         OR lessons.difficulty ILIKE :query \
