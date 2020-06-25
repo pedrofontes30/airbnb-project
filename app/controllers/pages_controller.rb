@@ -5,6 +5,4 @@ class PagesController < ApplicationController
     @sports = Sport.all
   end
 
-  def profile
-  end
 end

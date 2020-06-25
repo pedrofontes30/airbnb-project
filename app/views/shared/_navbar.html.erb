@@ -28,11 +28,21 @@
           <%= link_to "Lessons", lessons_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to '#' do %>
-            <div class="avatar d-flex align-items-center justify-content-center" style='color: white; background-color: rgb(50,50,50);' id="navbarDropdown" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false'>
+
+
+          <div class="dropdown">
+
+
+
+
+            <div class="avatar d-flex align-items-center justify-content-center" id="dropdownMenu" data-toggle="dropdown" aria-haspopup=true aria-expanded=false style='color: white; background-color: rgb(50,50,50);' id="navbarDropdown" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false'>
               <%= current_user.first_name[0] + current_user.last_name[0] %>
             </div>
-          <% end %>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu">
+            <a class="dropdown-item" href="#">My profile</a>
+            <a class="dropdown-item" href="#">Log out</a>
+          </div>
+        </div>
         </li>
       <% end %>
     </ul>
