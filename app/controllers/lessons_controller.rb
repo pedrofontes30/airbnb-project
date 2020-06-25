@@ -22,7 +22,7 @@ class LessonsController < ApplicationController
     @appointments = Appointment.where(lesson: @lesson)
     @review = Review.new(lesson: @lesson)
     @reviews = Review.where(lesson: @lesson)
-    @avg_review = (@reviews != [] ? @lesson.avg_review : 0 )
+    @avg_review = (@reviews != [] ? @lesson.avg_review : 0)
     @user_owns_lesson = (@lesson.user == current_user)
   end
 
@@ -35,7 +35,6 @@ class LessonsController < ApplicationController
 
 
   def create
-    # raise
     @lesson = Lesson.new(lesson_params)
     @lesson.user = current_user
     authorize @lesson
@@ -46,7 +45,7 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:description, :start_time, :end_time, :week_day, :location, :price, :max_attendees, :sport_id)
+    params.require(:lesson).permit(:description, :start_time, :end_time, :week_day, :location, :price, :max_attendees, :address, :photo, :sport_id, :difficulty)
   end
 end
 
