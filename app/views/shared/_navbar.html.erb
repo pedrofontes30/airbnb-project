@@ -8,6 +8,17 @@
   </button>
 
 
+<!-- Search Bar -->
+
+    <%= form_tag lessons_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find a Lesson"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if !user_signed_in? %>
