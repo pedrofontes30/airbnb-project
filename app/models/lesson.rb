@@ -5,6 +5,7 @@ class Lesson < ApplicationRecord
   # validates :start_time, :end_time, inclusion: { in: (0..23) }
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  has_one_attached :photo
 
   def under_limit?
     Appointment.where(lesson: self).length < max_attendees
