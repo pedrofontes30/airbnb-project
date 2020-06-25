@@ -14,7 +14,7 @@ class LessonPolicy < ApplicationPolicy
   end
 
   def create?
-    user.role == 'teacher'
+    user.role == 'Teacher'
   end
 
   def update?

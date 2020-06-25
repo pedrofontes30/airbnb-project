@@ -5,12 +5,7 @@ class LessonsController < ApplicationController
   def index
     @lesson = Lesson.new
     @lessons = policy_scope(Lesson).order(created_at: :desc)
-    @reviews = []
-    @lessons.each do |lesson|
-      # lesson[:avg_review] = (@reviews != [] ? avg_review : 0 )
-    end
 
-    @avg_review = avg_review
 
     @lessons = Lesson.all
 
@@ -20,8 +15,6 @@ class LessonsController < ApplicationController
         lng: flat.longitude
       }
     end
-
-    @avg_review = 0
 
   end
 
@@ -56,6 +49,6 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:description, :start_time, :end_time, :week_day, :location, :price, :max_attendees)
+    params.require(:lesson).permit(:description, :start_time, :end_time, :week_day, :location, :price, :max_attendees,:address, :sport_id)
   end
 end

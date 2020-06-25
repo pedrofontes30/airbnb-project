@@ -18,7 +18,10 @@ class Lesson < ApplicationRecord
     reviews.each do |review|
       avg_review += review.rating
     end
-    avg_review /= reviews.length
+    if reviews == []
+      return avg_review = 0
+    else
+    return avg_review /= reviews.length
+    end
   end
-
 end

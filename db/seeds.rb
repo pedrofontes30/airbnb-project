@@ -24,17 +24,4 @@ skate = Sport.create(name: 'skate', description: 'Learn to skate today with a ce
 yoga = Sport.create(name: 'yoga', description: 'Regular practice creates mental clarity and calmness.', photo: [2])
 
 
-lesson = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
-               start_time: "9",
-               end_time: "11",
-               week_day: "saturday",
-               location: "Caparica",
-               max_attendees: 5,
-               user: user1,
-               price: 50,
-               sport_id: surf.id)
-
-Appointment.create(user: user2, lesson: lesson)
-
-Review.create(content: 'Lots of fun in my first day of surfing!', rating: 5, lesson_id: lesson.id, user: user2)
 
