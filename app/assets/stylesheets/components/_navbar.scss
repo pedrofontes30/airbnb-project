@@ -2,6 +2,9 @@
   justify-content: space-between;
   background: white;
   height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 3;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -15,6 +18,7 @@
 .dropdown-toggle::after {
   color: white;
 }
+
 
 .active-cyan .fa, .active-cyan-2 .fa {
   color: #4dd0e1;
