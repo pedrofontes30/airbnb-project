@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "open-uri"
 
 Review.destroy_all
 Appointment.destroy_all
@@ -24,57 +25,67 @@ skate = Sport.create(name: 'skate', description: 'Learn to skate today with a ce
 yoga = Sport.create(name: 'yoga', description: 'Regular practice creates mental clarity and calmness.', photo: [2])
 
 
-lesson = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
-               start_time: "9",
-               end_time: "11",
-               week_day: "saturday",
-               location: "Caparica",
-               max_attendees: 5,
-               user: user1,
-               price: 60,
-               sport_id: surf.id)
+# lesson1 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
+#                start_time: "9",
+#                end_time: "11",
+#                week_day: "saturday",
+#                location: "Caparica",
+#                max_attendees: 5,
+#                user: user1,
+#                price: 60,
+#                sport_id: surf.id,
+#                address: 'Av. Marginal, 2775-604 Carcavelos')
 
-lesson = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of skateboarding!",
-               start_time: "16",
-               end_time: "18",
-               week_day: "friday",
-               location: "Ericeira",
-               max_attendees: 3,
-               user: user1,
-               price: 40,
-               sport_id: skate.id)
+# file = File.open(image_url('surf_lesson_1.jpg'))
 
-lesson = Lesson.create( description: "Uhhuuuul! Let's go surfing!",
-               start_time: "8",
-               end_time: "10",
-               week_day: "sunday",
-               location: "Carcavelos",
-               max_attendees: 6,
-               user: user1,
-               price: 50,
-               sport_id: surf.id)
+# lesson1.photo.attach(io: file, filename: 'surf_lesson_1.jpg', content_type: 'image/jpg')
 
-lesson = Lesson.create( description: "Advanced yoga positions and meditation session...",
-               start_time: "18",
-               end_time: "19",
-               week_day: "tuesday",
-               location: "Lisbon",
-               max_attendees: 6,
-               user: user1,
-               price: 60,
-               sport_id: yoga.id)
+# lesson2 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of skateboarding!",
+#                start_time: "16",
+#                end_time: "18",
+#                week_day: "friday",
+#                location: "Ericeira",
+#                max_attendees: 3,
+#                user: user1,
+#                price: 40,
+#                sport_id: skate.id,
+#                address: 'Av. Marginal, 2775-604 Carcavelos')
 
-lesson = Lesson.create( description: "Bowl riding lessons in the Quicksilver skatepark!",
-               start_time: "9",
-               end_time: "11",
-               week_day: "thursday",
-               location: "Ericeira",
-               max_attendees: 3,
-               user: user1,
-               price: 30,
-               sport_id: skate.id)
+# file = File.open(image_url('skate_lesson_1.jpg'))
 
-Appointment.create(user: user2, lesson: lesson)
+# lesson2.photo.attach(io: file, filename: 'skate_lesson_1.jpg', content_type: 'image/jpg')
 
-Review.create(content: 'Lots of fun in my first day of surfing!', rating: 5, lesson_id: lesson.id, user: user2)
+# lesson3 = Lesson.create( description: "Uhhuuuul! Let's go surfing!",
+#                start_time: "8",
+#                end_time: "10",
+#                week_day: "sunday",
+#                location: "Carcavelos",
+#                max_attendees: 6,
+#                user: user1,
+#                price: 50,
+#                sport_id: surf.id,
+#                address: 'Av. Marginal, 2775-604 Carcavelos')
+
+# file = File.open(image_url('surf_lesson_2.jpg'))
+
+# lesson3.photo.attach(io: file, filename: 'surf_lesson_2.jpg', content_type: 'image/jpg')
+
+# lesson4 = Lesson.create( description: "Advanced yoga positions and meditation session...",
+#                start_time: "18",
+#                end_time: "19",
+#                week_day: "tuesday",
+#                location: "Lisbon",
+#                max_attendees: 6,
+#                user: user1,
+#                price: 60,
+#                sport_id: yoga.id,
+#                address: 'Av. Marginal, 2775-604 Carcavelos')
+
+# file = File.open(image_url('yoga_lesson_1.jpg'))
+
+# lesson4.photo.attach(io: file, filename: 'yoga_lesson_1.jpg', content_type: 'image/jpg')
+
+# Appointment.create(user: user2, lesson: lesson)
+
+# Review.create(content: 'Lots of fun in my first day of surfing!', rating: 5, lesson_id: lesson.id, user: user2)
 
