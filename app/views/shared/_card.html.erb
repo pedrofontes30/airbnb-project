@@ -3,6 +3,28 @@
   <%= link_to lesson_path(lesson) do  %>
     <div class="container">
 
+
+  <div class="card">
+    <div class="image">
+      <%= image_tag "surf-lessons.jpg" %>
+    </div>
+    <div class="card-product-infos">
+      <h2>Surfing lesson at Caparica</h2>
+      <p><%= lesson.description %></p>
+      <p id="time"><strong><%= lesson.week_day %> from <%= lesson.start_time %> to <%= lesson.end_time %></strong></p>
+      <p><%= lesson.max_attendees%> Spots Available</p>
+    </div>
+    <div class="card-right">
+      <div class="card-price">
+        <h2>Price</h2>
+        <p>$<%= lesson.price %></p>
+      </div>
+      <div class="card-review">
+
+       <% lesson.avg_review.times do  %>
+        <i class="fas fa-star"></i>
+        <% end %>
+
       <div class="card">
         <div class="image">
           <%= image_tag "#{lesson.sport.name}_lesson_1.jpg" %>
@@ -24,6 +46,7 @@
             <% end %>
           </div>
         </div>
+
       </div>
     </div>
   <% end %>

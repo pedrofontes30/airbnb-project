@@ -5,6 +5,7 @@ class LessonsController < ApplicationController
   def index
     @lesson = Lesson.new
     @lessons = policy_scope(Lesson).order(created_at: :desc)
+
     @lessons = Lesson.all
     @markers = @lessons.map do |flat|
       {
@@ -12,6 +13,7 @@ class LessonsController < ApplicationController
         lng: flat.longitude
       }
     end
+
   end
 
   def show
@@ -45,6 +47,6 @@ class LessonsController < ApplicationController
   private
 
   def lesson_params
-    params.require(:lesson).permit(:description, :start_time, :end_time, :week_day, :location, :price, :max_attendees)
+    params.require(:lesson).permit(:description, :start_time, :end_time, :week_day, :location, :price, :max_attendees,:address, :sport_id)
   end
 end
