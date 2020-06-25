@@ -32,11 +32,15 @@
         </li>
         <% else %>
         <% if current_user.role == 'Teacher' %>
-        <%= link_to 'Create lesson', '', class: "nav-link", data: { toggle: "modal", target: "#newModal"} %>
+          <%= link_to 'Create lesson', '', class: "nav-link", data: { toggle: "modal", target: "#newModal"} %>
+          <li class="nav-item mx-3">
+            <%= link_to "My Lessons", lessons_path(query: current_user.first_name), class: "nav-link" %>
+          </li>
+        <% else %>
+          <li class="nav-item mx-3">
+            <%= link_to "My Lessons", lessons_path(student: 'true'), class: "nav-link" %>
+          </li>
         <% end %>
-        <li class="nav-item mx-3">
-          <%= link_to "Lessons", lessons_path, class: "nav-link" %>
-        </li>
         <li class="nav-item">
           <div class="dropdown">
             <div class="avatar d-flex align-items-center justify-content-center" id="dropdownMenu" data-toggle="dropdown" aria-haspopup=true aria-expanded=false style='color: white; background-color: rgb(50,50,50);' id="navbarDropdown" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false'>
