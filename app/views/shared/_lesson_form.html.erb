@@ -8,9 +8,10 @@
       <%= f.input :week_day %>
     </div>
     <%= f.input :location %>
+    <%= f.input :address %>
     <%= f.input :price %>
     <%= f.input :max_attendees %>
-    <%= f.input :address %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :difficulty, collection:["Beginner", "Intermediate", "Advanced"]%>
     <div class="modal-footer">
       <%= f.button :submit, class: 'btn btn-primary' %>

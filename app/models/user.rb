@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, :first_name, :last_name, :age, :role, presence: true
   has_many :appointments
   has_many :lessons, through: :appointments
+  has_one_attached :photo
 
   def has_appointment?(lesson)
     appointments.any?{ |appointment| appointment.lesson == lesson }
