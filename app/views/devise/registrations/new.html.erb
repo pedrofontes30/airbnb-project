@@ -1,20 +1,20 @@
 <div class="registration_page">
-
-
   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-  <h2>Sign up</h2>
-  <div class="form-inputs">
-    <p><%= f.input :first_name, required: true, label: false, placeholder: "First Name" %></p>
-   <p><%= f.input :last_name, required: true, label: false, placeholder: "Last Name" %></p>
-   <p><%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email address:" %></p>
-   <p><%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false , placeholder: "Password" %></p>
-   <p><%= f.input :password_confirmation, required: true, label: false, placeholder: "Password confirmation" %></p>
-   <p><%=  f.input :age, required:true, label: false, placeholder: "Age" %> </p>
-   <p><%=  f.input :role, :collection => %w[Teacher Student], label: false, placeholder: "Role" %></p>
-   <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
- </div> <% end %>
- <%= link_to "Login", new_user_session_path, class: "login_button"%>
+    <%= f.error_notification %>
+    <h2>Sign up</h2>
+    <div class="form-inputs">
+      <%= f.input :first_name, required: true, label: false, placeholder: "First Name" %>
+      <%= f.input :last_name, required: true, label: false, placeholder: "Last Name" %>
+      <%= f.input :photo, as: :file %>
+      <%= f.input :email, required: true, autofocus: true, label: false, placeholder: "Email address:" %>
+      <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), label: false , placeholder: "Password" %>
+      <%= f.input :password_confirmation, required: true, label: false, placeholder: "Password confirmation" %>
+      <%=  f.input :age, required:true, label: false, placeholder: "Age" %>
+      <%=  f.input :role, :collection => %w[teacher student], label: false, placeholder: "Role" %>
+      <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+  <%= link_to "Login", new_user_session_path, class: "login_button"%>
 </div>
 
 
