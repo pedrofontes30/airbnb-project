@@ -6,6 +6,6 @@ Rails.application.routes.draw do
     resources :appointments, only: [:create]
     resources :reviews, only: [:create]
   end
-  get '/profile', to: 'pages#profile'
+  get '/teacher-profile', to: 'profiles#teacher_profile'
   resources :appointments, only: [:destroy]
 end
