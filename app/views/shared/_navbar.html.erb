@@ -9,7 +9,7 @@
 
   <!-- Search Bar -->
 
-  <%= form_tag lessons_path, method: :get do %>
+  <%= form_tag lessons_path, class: 'form-inline', method: :get do %>
   <%= text_field_tag :query,
   params[:query],
   class: "form-control",
