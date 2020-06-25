@@ -14,6 +14,7 @@
     <%= f.input :photo, as: :file %>
     <%= f.input :difficulty, collection:["Beginner", "Intermediate", "Advanced"]%>
     <div class="modal-footer">
+      <%= link_to "Delete lesson", lessons_path(lesson), data: {confirm: 'Are you sure?'}, method: :delete %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     </div>
   <% end %>
