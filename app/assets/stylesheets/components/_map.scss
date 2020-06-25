@@ -6,3 +6,18 @@
   text-align: center;
   font-family: 'Open Sans', sans-serif;
 }
+
+/* TODO: design your flexbox layout with a sticky map */
+.container {
+  display: flex;
+}
+
+
+#map {
+  width: 40%;
+  height: calc(100vh - 100px);
+  position: sticky;
+  top: 100px;
+}
+
+
