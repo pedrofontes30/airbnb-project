@@ -1,11 +1,9 @@
-
 <% @lessons.each do |lesson| %>
   <%= link_to lesson_path(lesson) do  %>
     <div class="container">
-
       <div class="card">
         <div class="image">
-          <%= image_tag "#{lesson.sport.name}_lesson_1.jpg" %>
+          <%= cl_image_tag lesson.photo.key %>
         </div>
         <div class="card-product-infos">
           <h2><%= lesson.sport.name.capitalize %> lesson at <%= lesson.location %></h2>
@@ -15,7 +13,6 @@
         </div>
         <div class="card-right">
           <div class="card-price">
-            <h2>Price</h2>
             <p>$<%= lesson.price %></p>
           </div>
           <div class="card-review">
@@ -24,6 +21,7 @@
             <% end %>
           </div>
         </div>
+
       </div>
     </div>
   <% end %>

@@ -20,7 +20,7 @@
     </div>
   </div>
   <div class="row">
-    <div class='lesson-image rounded-lg mb-5 mt-3' style="background-image: url(<%= "/assets/#{@lesson.sport.name}_lesson_1.jpg"%>);">
+    <div class='lesson-image rounded-lg mb-5 mt-3' style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path @lesson.photo.key %>')">
     </div>
   </div>
   <div class='row border-bottom pb-4 mb-4'>
