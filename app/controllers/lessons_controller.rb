@@ -5,7 +5,18 @@ class LessonsController < ApplicationController
   def index
     @lesson = Lesson.new
     @lessons = policy_scope(Lesson).order(created_at: :desc)
-    @lessons = Lesson.all
+    if params[:query].present?
+      sql_query = " \
+        lessons.location ILIKE :query \
+        OR lessons.difficulty ILIKE :query \
+        OR users.first_name ILIKE :query \
+        OR users.last_name ILIKE :query \
+        OR sports.name ILIKE :query \
+      "
+      @lessons = Lesson.joins(:user, :sport).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @lessons = Lesson.all
+    end
     @markers = @lessons.map do |flat|
       {
         lat: flat.latitude,
@@ -53,18 +64,3 @@ end
   # em vez de ser Lesson.all vai ser tipo Lesson.where(sport_id: sport.id)
   #  esse sport.id vais ter que ir busca lo nos params ou seja vais criar uma variavel
   # sport que vai ser igual Sport.find(name: params[:query] que foi o que o utilizador pesquisou no teu form.
-
-
-    Lesson.where(sport_id: sport.id)
-
-
-
-
-
-
-
-
-
-
-
-
