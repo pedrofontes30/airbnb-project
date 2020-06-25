@@ -33,6 +33,7 @@ class LessonsController < ApplicationController
     redirect_to lesson_path(params[:id])
   end
 
+
   def create
     @lesson = Lesson.new(lesson_params)
     @lesson.user = current_user
@@ -47,3 +48,23 @@ class LessonsController < ApplicationController
     params.require(:lesson).permit(:description, :start_time, :end_time, :week_day, :location, :price, :max_attendees, :address, :photo, :sport_id, :difficulty)
   end
 end
+
+  # depois no lessons controller vais ter que filtrar as lessons ,
+  # em vez de ser Lesson.all vai ser tipo Lesson.where(sport_id: sport.id)
+  #  esse sport.id vais ter que ir busca lo nos params ou seja vais criar uma variavel
+  # sport que vai ser igual Sport.find(name: params[:query] que foi o que o utilizador pesquisou no teu form.
+
+
+    Lesson.where(sport_id: sport.id)
+
+
+
+
+
+
+
+
+
+
+
+
