@@ -7,5 +7,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
   get '/teacher-profile', to: 'profiles#teacher_profile'
+  get '/user-profile', to: 'profiles#user_profile'
   resources :appointments, only: [:destroy]
 end
