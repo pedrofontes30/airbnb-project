@@ -33,7 +33,8 @@
 }
 
 .carousel-item {
-  font-family: Futura;
+  font-family: Open Sans;
+  font-weight: Extra Bold;
   font-size: 20px;
   box-shadow: 1px;
   letter-spacing: 2px;
@@ -41,30 +42,11 @@
   max-height: calc(100vh - 100px);
 }
 
-.navbar-brand {
-    width: 170px;
-}
-
 h1 {
-  font-family: Futura;
+  font-family: Fira Sans, sans-serif;
   font-size: 100px;
   letter-spacing: 3px;
+  text-shadow: 1px 3px 2px rgba(0,0,0,0.1);
 }
-
-.btn-ghost {
-  color: #fff;
-  border: 2px solid #fff;
-  padding: 9px 25px;
-  border-radius: 50px;
-  font-weight: lighter;
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
-}
-
-.btn-ghost:hover {
-  opacity: 1;
-  color: pink;
-}
-
 
 // Footer
