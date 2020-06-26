@@ -25,7 +25,7 @@
   </div>
   <div class="row">
     <div class='lesson-image rounded-lg mb-5 mt-3' style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path @lesson.photo.key %>')">
-    </div>
+    </div> <span id="icon"></span>
   </div>
   <div class='row border-bottom pb-4 mb-4'>
     <div class='col-6 p-0'>
@@ -45,7 +45,7 @@
       <div class="rounded-lg p-3 text-center shadow border-0">
         <div class="d-flex justify-content-center my-3">
           <% (@appointments.length).times do %>
-            <%= icon('fas', 'user', class: ' px-1')%>
+             <%= icon('fas', 'user', class: ' px-1')%>
           <% end %>
           <% (@lesson.max_attendees - @appointments.length).times do %>
           <%= icon('far', 'user', class: 'px-1') %>
@@ -56,9 +56,9 @@
         <% if @user %>
           <% if !@user_owns_lesson && @lesson.under_limit? %>
             <% if @user.has_appointment?(@lesson) %>
-              <%= link_to 'Cancel lesson', appointment_path(@user.appointments.find_by lesson: @lesson), method: 'delete', class: "btn btn-danger mt-4 mx-3" %>
+              <%= link_to 'Cancel lesson', appointment_path(@lesson, @user.appointments.find_by(lesson: @lesson)), method: 'delete', class: "btn btn-danger mt-4 mx-3", remote: true %>
               <% else %>
-              <%= link_to 'Join this lesson', lesson_appointments_path(@lesson), method: 'post', class: "btn btn-primary mt-4 mx-3" %>
+              <%= link_to 'Join this lesson', lesson_appointments_path(@lesson), method: 'post', class: "btn btn-primary mt-4 mx-3", remote: true %>
             <% end %>
           <% end%>
         <% else %>
@@ -81,7 +81,7 @@
         <div class='mb-4'>
           <div class="d-flex align-items-center mb-2">
             <div class="avatar d-flex align-items-center justify-content-center" id="dropdownMenu" data-toggle="dropdown" aria-haspopup=true aria-expanded=false style='color: white; background-color: rgb(50,50,50);' id="navbarDropdown" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false'>
-              <%= review.user.first_name[0] + review.user.last_name[0] %>
+              <span id="review-<%= review.id %>"> <%= review.user.first_name[0] + review.user.last_name[0] %> </span>
             </div>
             <div class='ml-3'>
               <h5 class="mb-0"><%= review.user.first_name + ' ' + review.user.last_name %></h5>
@@ -124,7 +124,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for [ @lesson, @review ] do |f| %>
+        <%= simple_form_for([ @lesson, @review ], remote: true) do |f| %>
           <%= f.input :content %>
           <%= f.input :rating %>
           <div class="modal-footer">
