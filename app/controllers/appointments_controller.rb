@@ -1,15 +1,23 @@
 class AppointmentsController < ApplicationController
   def create
+    @lesson = Lesson.find(params[:lesson_id])
     @appointment = Appointment.new(lesson_id: params[:lesson_id], user: current_user)
     authorize @appointment
-    @appointment.save
-    redirect_to lesson_path(params[:lesson_id])
+    if @appointment.save
+      redirect_to lesson_path(@lesson, anchor: "icon")
+    else
+      render "lessons/show"
+    end
   end
 
   def destroy
-    @appointment = Appointment.find(params[:id])
+    @lesson = Lesson.find(params[:id])
+    @appointment = Appointment.find(params[:format])
     authorize @appointment
-    @appointment.destroy
-    redirect_to lessons_path
+    if @appointment.destroy
+      redirect_to lesson_path(@lesson, anchor: "icon")
+    else
+      render "lessons/show"
+    end
   end
 end
