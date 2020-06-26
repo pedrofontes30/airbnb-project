@@ -51,7 +51,7 @@ lesson2 = Lesson.create( description: "Lesson for any beginners who want to have
                user: user1,
                price: 40,
                sport_id: skate.id,
-               address: 'Estrada Nacional 247, 2655-319 Ericeira',
+               address: 'R. Carmo 40, 2655-253 Ericeira',
                difficulty: 'Intermediate',
                equipment: false)
 
@@ -79,17 +79,190 @@ lesson4 = Lesson.create( description: "Advanced yoga positions and meditation se
                end_time: "19",
                week_day: "tuesday",
                location: "Cascais",
-               max_attendees: 6,
+               max_attendees: 4,
                user: user6,
                price: 60,
                sport_id: yoga.id,
-               address: 'Rua dos Faisões, Vila Bicuda, 2750-689 Cascais',
+               address: 'Estrada Nacional 6, 2754-522 Cascais',
                difficulty: 'Beginner',
-               equipment: true)
+               equipment: false)
 
 file = URI.open('https://www.smaac-amalficoast.com/rentals/fotos/2/15101297614f874ca2dd08bead678bbe0f90752f13/1510129761e66d41688860000f28c66e60a02b0557.jpg')
 lesson4.photo.attach(io: file, filename: 'yoga_lesson_2', content_type: 'image/jpg')
 
-# Appointment.create(user: user2, lesson: lesson)
+lesson5 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
+               start_time: "18",
+               end_time: "19",
+               week_day: "thursday",
+               location: "Caparica",
+               max_attendees: 5,
+               user: user5,
+               price: 60,
+               sport_id: surf.id,
+               address: 'Rua Praia da Saúde 2825-412 Costa da Caparica',
+               difficulty: 'Advanced',
+               equipment: true)
 
-# Review.create(content: 'Lots of fun in my first day of surfing!', rating: 5, lesson_id: lesson.id, user: user2)
+file = URI.open('https://kiteschoolportugal.com/wp-content/uploads/2017/02/surf-lessons-1-of-2.jpg')
+lesson5.photo.attach(io: file, filename: 'surf_lesson_4.png', content_type: 'image/jpg')
+
+lesson6 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of skateboarding!",
+               start_time: "18",
+               end_time: "19",
+               week_day: "friday",
+               location: "Ericeira",
+               max_attendees: 3,
+               user: user1,
+               price: 60,
+               sport_id: skate.id,
+               address: 'R. Carmo 40, 2655-253 Ericeira',
+               difficulty: 'Intermediate',
+               equipment: true)
+
+file = URI.open('https://www.baysixty6.com/wp-content/uploads/2016/03/Beginner-Sessions-Group-Lessons-BAYSIXTY6-Skate-Park-LEARN-TO-SKATEBOARD.jpg')
+lesson6.photo.attach(io: file, filename: 'skate_lesson_2.png', content_type: 'image/jpg')
+
+lesson7 = Lesson.create( description: "Advanced yoga positions and meditation session...",
+               start_time: "18",
+               end_time: "19",
+               week_day: "saturday",
+               location: "Carcavelos",
+               max_attendees: 4,
+               user: user6,
+               price: 60,
+               sport_id: yoga.id,
+               address: 'Avenida Marginal, 2775-604 Carcavelos',
+               difficulty: 'Beginner',
+               equipment: false)
+
+file = URI.open('https://www.smaac-amalficoast.com/rentals/fotos/2/15101297614f874ca2dd08bead678bbe0f90752f13/1510129761e66d41688860000f28c66e60a02b0557.jpg')
+lesson7.photo.attach(io: file, filename: 'yoga_lesson_2', content_type: 'image/jpg')
+
+lesson8 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
+               start_time: "18",
+               end_time: "19",
+               week_day: "monday",
+               location: "Cascais",
+               max_attendees: 4,
+               user: user5,
+               price: 60,
+               sport_id: surf.id,
+               address: 'Estrada Nacional 6, 2754-522 Cascais',
+               difficulty: 'Intermediate',
+               equipment: true)
+
+file = URI.open('https://kiteschoolportugal.com/wp-content/uploads/2017/02/surf-lessons-1-of-2.jpg')
+lesson8.photo.attach(io: file, filename: 'surf_lesson_4.png', content_type: 'image/jpg')
+
+lesson9 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of skateboarding!",
+               start_time: "18",
+               end_time: "19",
+               week_day: "sunday",
+               location: "Caparica",
+               max_attendees: 5,
+               user: user1,
+               price: 60,
+               sport_id: skate.id,
+               address: 'Rua Praia da Saúde 2825-412 Costa da Caparica',
+               difficulty: 'Advanced',
+               equipment: true)
+
+file = URI.open('https://www.baysixty6.com/wp-content/uploads/2016/03/Beginner-Sessions-Group-Lessons-BAYSIXTY6-Skate-Park-LEARN-TO-SKATEBOARD.jpg')
+lesson9.photo.attach(io: file, filename: 'skate_lesson_2.png', content_type: 'image/jpg')
+
+lesson10 = Lesson.create( description: "Advanced yoga positions and meditation session...",
+               start_time: "18",
+               end_time: "19",
+               week_day: "tuesday",
+               location: "Ericeira",
+               max_attendees: 6,
+               user: user1,
+               price: 60,
+               sport_id: yoga.id,
+               address: 'R. Carmo 40, 2655-253 Ericeira',
+               difficulty: 'Beginner',
+               equipment: false)
+
+file = URI.open('https://www.smaac-amalficoast.com/rentals/fotos/2/15101297614f874ca2dd08bead678bbe0f90752f13/1510129761e66d41688860000f28c66e60a02b0557.jpg')
+lesson10.photo.attach(io: file, filename: 'yoga_lesson_2', content_type: 'image/jpg')
+
+lesson11 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
+               start_time: "18",
+               end_time: "19",
+               week_day: "friday",
+               location: "Carcavelos",
+               max_attendees: 5,
+               user: user5,
+               price: 60,
+               sport_id: surf.id,
+               address: 'Avenida Marginal, 2775-604 Carcavelos',
+               difficulty: 'Advanced',
+               equipment: true)
+
+file = URI.open('https://kiteschoolportugal.com/wp-content/uploads/2017/02/surf-lessons-1-of-2.jpg')
+lesson11.photo.attach(io: file, filename: 'surf_lesson_4.png', content_type: 'image/jpg')
+
+lesson12 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of skateboarding!",
+               start_time: "18",
+               end_time: "19",
+               week_day: "saturday",
+               location: "Cascais",
+               max_attendees: 3,
+               user: user6,
+               price: 60,
+               sport_id: skate.id,
+               address: 'Estrada Nacional 6, 2754-522 Cascais',
+               difficulty: 'Intermediate',
+               equipment: true)
+
+file = URI.open('https://www.baysixty6.com/wp-content/uploads/2016/03/Beginner-Sessions-Group-Lessons-BAYSIXTY6-Skate-Park-LEARN-TO-SKATEBOARD.jpg')
+lesson12.photo.attach(io: file, filename: 'skate_lesson_2.png', content_type: 'image/jpg')
+
+lesson13 = Lesson.create( description: "Advanced yoga positions and meditation session...",
+               start_time: "18",
+               end_time: "19",
+               week_day: "wednesday",
+               location: "Caparica",
+               max_attendees: 2,
+               user: user1,
+               price: 60,
+               sport_id: yoga.id,
+               address: 'Rua Praia da Saúde 2825-412 Costa da Caparica',
+               difficulty: 'Beginner',
+               equipment: false)
+
+file = URI.open('https://www.smaac-amalficoast.com/rentals/fotos/2/15101297614f874ca2dd08bead678bbe0f90752f13/1510129761e66d41688860000f28c66e60a02b0557.jpg')
+lesson13.photo.attach(io: file, filename: 'yoga_lesson_2', content_type: 'image/jpg')
+
+lesson14 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of surfing!",
+               start_time: "18",
+               end_time: "19",
+               week_day: "wednesday",
+               location: "Ericeira",
+               max_attendees: 4,
+               user: user5,
+               price: 60,
+               sport_id: surf.id,
+               address: 'R. Carmo 40, 2655-253 Ericeira',
+               difficulty: 'Intermediate',
+               equipment: true)
+
+file = URI.open('https://kiteschoolportugal.com/wp-content/uploads/2017/02/surf-lessons-1-of-2.jpg')
+lesson14.photo.attach(io: file, filename: 'surf_lesson_4.png', content_type: 'image/jpg')
+
+lesson15 = Lesson.create( description: "Lesson for any beginners who want to have fun and learn the basics of skateboarding!",
+               start_time: "18",
+               end_time: "19",
+               week_day: "friday",
+               location: "Carcavelos",
+               max_attendees: 3,
+               user: user1,
+               price: 60,
+               sport_id: skate.id,
+               address: 'Avenida Marginal, 2775-604 Carcavelos',
+               difficulty: 'Advanced',
+               equipment: true)
+
+file = URI.open('https://www.baysixty6.com/wp-content/uploads/2016/03/Beginner-Sessions-Group-Lessons-BAYSIXTY6-Skate-Park-LEARN-TO-SKATEBOARD.jpg')
+lesson15.photo.attach(io: file, filename: 'skate_lesson_2.png', content_type: 'image/jpg')
+
