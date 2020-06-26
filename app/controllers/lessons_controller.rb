@@ -1,11 +1,16 @@
 class LessonsController < ApplicationController
-
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @lesson = Lesson.new
     @lessons = policy_scope(Lesson).order(created_at: :desc)
-    if params[:query].present?
+
+    if params[:student].present?
+      @appointments = Appointment.where(user: current_user)
+      @lessons = @appointments.map do |appointment|
+        appointment.lesson
+      end
+    elsif params[:query].present?
       sql_query = " \
         lessons.location ILIKE :query \
         OR lessons.difficulty ILIKE :query \
@@ -45,7 +50,6 @@ class LessonsController < ApplicationController
     redirect_to lesson_path(params[:id])
   end
 
-
   def create
     @lesson = Lesson.new(lesson_params)
     @lesson.user = current_user
@@ -54,10 +58,17 @@ class LessonsController < ApplicationController
     redirect_to lessons_path
   end
 
+  def destroy
+    @lesson = Lesson.find(params[:id])
+    authorize @lesson
+    @lesson.destroy
+    redirect_to lessons_path(query: current_user.first_name)
+  end
+
   private
 
   def lesson_params
-    params.require(:lesson).permit(:description, :start_time, :end_time, :week_day, :location, :price, :max_attendees, :address, :photo, :sport_id, :difficulty)
+    params.require(:lesson).permit(:description, :start_time, :end_time, :week_day, :location, :price, :max_attendees, :address, :photo, :sport_id, :difficulty, :equipment)
   end
 end
 

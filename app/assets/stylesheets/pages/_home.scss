@@ -37,11 +37,17 @@
   font-size: 20px;
   box-shadow: 1px;
   letter-spacing: 2px;
+  overflow: hidden;
+  max-height: calc(100vh - 100px);
+}
+
+.navbar-brand {
+    width: 170px;
 }
 
 h1 {
   font-family: Futura;
-  font-size: 70px;
+  font-size: 100px;
   letter-spacing: 3px;
 }
 
@@ -59,3 +65,6 @@ h1 {
   opacity: 1;
   color: pink;
 }
+
+
+// Footer

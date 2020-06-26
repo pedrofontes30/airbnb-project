@@ -9,12 +9,17 @@
     </div>
     <%= f.input :location %>
     <%= f.input :address %>
-    <%= f.input :price %>
-    <%= f.input :max_attendees %>
+    <div class="d-flex justify-content-between">
+      <%= f.input :price %>
+      <%= f.input :max_attendees %>
+    </div>
     <%= f.input :photo, as: :file %>
     <%= f.input :difficulty, collection:["Beginner", "Intermediate", "Advanced"]%>
+    <%= f.input :equipment, label: 'Includes equipment' %>
     <div class="modal-footer">
-      <%= link_to "Delete lesson", lessons_path(lesson), data: {confirm: 'Are you sure?'}, method: :delete %>
+      <% if lesson.id %>
+        <%= link_to "Delete lesson", lesson_path(lesson), class: 'btn btn-danger', data: {confirm: 'Are you sure?'}, method: :delete %>
+      <% end %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     </div>
   <% end %>

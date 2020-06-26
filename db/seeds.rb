@@ -36,7 +36,8 @@ lesson1 = Lesson.create( description: "Lesson for any beginners who want to have
                price: 60,
                sport_id: surf.id,
                address: 'Rua Praia da Saúde 2825-412 Costa da Caparica',
-               difficulty: 'Beginner')
+               difficulty: 'Beginner',
+               equipment: true)
 
 file = URI.open('https://kiteschoolportugal.com/wp-content/uploads/2017/02/surf-lessons-1-of-2.jpg')
 lesson1.photo.attach(io: file, filename: 'surf_lesson_4.png', content_type: 'image/jpg')
@@ -51,7 +52,8 @@ lesson2 = Lesson.create( description: "Lesson for any beginners who want to have
                price: 40,
                sport_id: skate.id,
                address: 'Estrada Nacional 247, 2655-319 Ericeira',
-               difficulty: 'Intermediate')
+               difficulty: 'Intermediate',
+               equipment: false)
 
 file = URI.open('https://www.baysixty6.com/wp-content/uploads/2016/03/Beginner-Sessions-Group-Lessons-BAYSIXTY6-Skate-Park-LEARN-TO-SKATEBOARD.jpg')
 lesson2.photo.attach(io: file, filename: 'skate_lesson_2.png', content_type: 'image/jpg')
@@ -66,7 +68,8 @@ lesson3 = Lesson.create( description: "Uhhuuuul! Let's go surfing!",
                price: 50,
                sport_id: surf.id,
                address: 'Avenida Marginal, 2775-604 Carcavelos',
-               difficulty: 'Advanced')
+               difficulty: 'Advanced',
+               equipment: true)
 
 file = URI.open('https://scontent.flis8-2.fna.fbcdn.net/v/t1.0-9/69512086_2464681983598942_8273203903793725440_o.jpg?_nc_cat=101&_nc_sid=e007fa&_nc_ohc=kpUEKAVZ1hcAX_7IL6Q&_nc_ht=scontent.flis8-2.fna&oh=f96db1d161aff8771343fdc9f4eb8eab&oe=5F1C1CE8')
 lesson3.photo.attach(io: file, filename: 'surf_lesson_5.jpg', content_type: 'image/jpg')
@@ -81,7 +84,8 @@ lesson4 = Lesson.create( description: "Advanced yoga positions and meditation se
                price: 60,
                sport_id: yoga.id,
                address: 'Rua dos Faisões, Vila Bicuda, 2750-689 Cascais',
-               difficulty: 'Beginner')
+               difficulty: 'Beginner',
+               equipment: true)
 
 file = URI.open('https://www.smaac-amalficoast.com/rentals/fotos/2/15101297614f874ca2dd08bead678bbe0f90752f13/1510129761e66d41688860000f28c66e60a02b0557.jpg')
 lesson4.photo.attach(io: file, filename: 'yoga_lesson_2', content_type: 'image/jpg')

@@ -38,3 +38,9 @@ document.addEventListener('turbolinks:load', () => {
 
 });
 
+
+
+$('.carousel').carousel({
+  interval: 3500
+})
+
