@@ -1,4 +1,4 @@
-<div class="modal-body">
+<div class="modal-body px-5">
   <%= simple_form_for (lesson) do |f| %>
     <%= f.association :sport %>
     <%= f.input :description %>
@@ -16,7 +16,7 @@
     <%= f.input :photo, as: :file %>
     <%= f.input :difficulty, collection:["Beginner", "Intermediate", "Advanced"]%>
     <%= f.input :equipment, label: 'Includes equipment' %>
-    <div class="modal-footer">
+    <div class="modal-footer justify-content-between">
       <% if lesson.id %>
         <%= link_to "Delete lesson", lesson_path(lesson), class: 'btn btn-danger', data: {confirm: 'Are you sure?'}, method: :delete %>
       <% end %>
