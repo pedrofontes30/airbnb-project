@@ -35,3 +35,7 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
 });
+
+$('.carousel').carousel({
+  interval: 3500
+})
