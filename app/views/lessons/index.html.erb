@@ -1,6 +1,6 @@
 <div class="index_page">
   <div class="left">
-    <h2><strong>Lessons around the Portuguese Coast</strong></h2>
+    <h2><strong><%= params[:student].present? ? "You are enrolled in #{@lessons.length} lessons" : params[:query].present? ? "Results for #{params[:query]}" : 'All lessons' %></strong></h2>
     <div class="container">
       <%= render "shared/card" , partial: @lessons %>
     </div>

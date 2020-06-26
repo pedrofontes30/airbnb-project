@@ -27,7 +27,7 @@
 <% @lessons.each do |lesson| %>
   <%= link_to lesson_path(lesson) do  %>
     <div class='row p-3 w-100 border-bottom position-relative' style='height: 200px;'>
-      <div class='col-3' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path lesson.photo.key %>'); background-size: cover; max-height: 168px;">
+      <div class='col-3 rounded' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path lesson.photo.key %>'); background-size: cover; max-height: 168px;">
       </div>
       <div class="col-7 pl-4">
         <h6 class='text-muted'style='letter-spacing: 3px;'><%= lesson.difficulty.upcase %></h6>
