@@ -16,11 +16,10 @@
   width: 190px;
 }
 
-.dropdown-toggle::after {
-  color: white;
-}
-
-
 .active-cyan .fa, .active-cyan-2 .fa {
   color: #4dd0e1;
+}
+
+.navbar {
+    box-shadow: 0 2px 2px -2px rgba(0,0,0,.4);
 }
