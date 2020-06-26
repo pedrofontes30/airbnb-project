@@ -99,6 +99,10 @@
           </button>
         <% end %>
       </div>
+      <% if @reviews = [] %>
+      <p>There are no reviews for this lesson currently</p>
+      <% else %>
+
       <% @reviews.each do |review| %>
         <div class='mb-4'>
           <div class="d-flex align-items-center mb-2">
@@ -115,6 +119,7 @@
             <p><%= review.rating %>/5</p>
           </div>
         </div>
+        <% end %>
       <% end %>
     </div>
   </div>
