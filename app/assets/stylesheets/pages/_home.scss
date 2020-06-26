@@ -21,15 +21,15 @@
 }
 
 .carousel-caption {
+  width: 450px;
+  display: block !important;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
   font-size: 20px;
   letter-spacing: 2px;
   font-weight: lighter;
-  width: auto;
 }
 
 .carousel-item {

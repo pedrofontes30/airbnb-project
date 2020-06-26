@@ -75,7 +75,8 @@
     </div>
   </div>
   <% if @user_owns_lesson %>
-    <div class="row">
+    <h4 class='mb-3'>Students</h4>
+    <div class="row border-bottom pb-4 mb-4">
       <% @appointments.each do |appointment| %>
         <div class="col-3 d-flex shadow p-3 m-3 align-items-center rounded">
             <div class="avatar d-flex align-items-center justify-content-center" id="dropdownMenu" data-toggle="dropdown" aria-haspopup=true aria-expanded=false style='color: white; background-color: rgb(50,50,50);' id="navbarDropdown" data-toggle="dropdown" aria-haspopup='true' aria-expanded='false'>
@@ -99,6 +100,9 @@
           </button>
         <% end %>
       </div>
+      <% if @reviews == [] %>
+        <p>There are no reviews for this lesson currently</p>
+      <% else %>
       <% @reviews.each do |review| %>
         <div class='mb-4'>
           <div class="d-flex align-items-center mb-2">
@@ -115,6 +119,7 @@
             <p><%= review.rating %>/5</p>
           </div>
         </div>
+        <% end %>
       <% end %>
     </div>
   </div>
