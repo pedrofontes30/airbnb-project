@@ -1,8 +1,11 @@
 <div class="index_page">
   <div class="left">
     <h2><strong>Lessons around the Portuguese Coast</strong></h2>
-    <%= render "shared/card" , partial: @lessons %>
+    <div class="container">
+      <%= render "shared/card" , partial: @lessons %>
+    </div>
   </div>
+
       <div id="map"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>

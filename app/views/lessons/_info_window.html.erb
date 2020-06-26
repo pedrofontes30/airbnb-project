@@ -1,1 +1,7 @@
-<p><%= flat.address %></p>
+<div class="popup">
+  <%= cl_image_tag lesson.photo.key %>
+  <p><% lesson.avg_review.times do  %>
+      <i class="fas fa-star"></i>
+    <% end %></p>
+    <p><strong><%= lesson.sport.name.capitalize %> lesson at <%= lesson.location %></strong></p>
+</div>

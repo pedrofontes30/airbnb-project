@@ -1,13 +1,12 @@
-<% @lessons.each do |lesson| %>
+<!-- <% @lessons.each do |lesson| %>
   <%= link_to lesson_path(lesson) do  %>
-    <div class="container">
-      <div class="card">
+    <div class="card">
         <div class="image">
           <%= cl_image_tag lesson.photo.key %>
         </div>
         <div class="card-product-infos">
           <h2><%= lesson.sport.name.capitalize %> lesson at <%= lesson.location %></h2>
-          <p><%= lesson.description %></p>
+          <p><%= lesson.difficulty %></p>
           <p id="time"><strong><%= lesson.week_day %> from <%= lesson.start_time %>:00 to <%= lesson.end_time %>:00</strong></p>
           <p><%= lesson.max_attendees - lesson.appointments.length %> Spots Available</p>
         </div>
@@ -22,25 +21,28 @@
           </div>
       </div>
     </div>
-</div>
-<% end %>
-<% end %>
+  <% end %>
+<% end %> -->
 
-
-
-
-
-<!-- <div class="card mb-3" style="max-width: 540px;">
-  <div class="row no-gutters">
-    <div class="col-md-4">
-      <img src="..." class="card-img" alt="...">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+<% @lessons.each do |lesson| %>
+  <%= link_to lesson_path(lesson) do  %>
+    <div class='row p-3 w-100 border-bottom position-relative' style='height: 200px;'>
+      <div class='col-3' style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path lesson.photo.key %>'); background-size: cover; max-height: 168px;">
+      </div>
+      <div class="col-7 pl-4">
+        <h6 class='text-muted'style='letter-spacing: 3px;'><%= lesson.difficulty.upcase %></h6>
+        <h2><%= lesson.sport.name.capitalize %> lesson at <%= lesson.location %></h2>
+        <p id="time"><strong><%= lesson.week_day %> from <%= lesson.start_time %>:00 to <%= lesson.end_time %>:00</strong></p>
+        <p><%= lesson.max_attendees - lesson.appointments.length %> places remaining</p>
+      </div>
+      <div class="col-2 text-right d-flex flex-column justify-content-between pb-3" style='right:0;'>
+          <h5>$<%= lesson.price %></h5>
+        <div class="d-flex justify-content-end">
+          <% lesson.avg_review.times do  %>
+            <i class="fas fa-star ml-1"></i>
+          <% end %>
+        </div>
       </div>
     </div>
-  </div>
-</div> -->
+  <% end %>
+<% end %>
