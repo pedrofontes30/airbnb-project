@@ -1,7 +1,12 @@
 <div class="popup">
+  <%= link_to lesson_path(lesson) do  %>
+
   <%= cl_image_tag lesson.photo.key %>
   <p><% lesson.avg_review.times do  %>
       <i class="fas fa-star"></i>
     <% end %></p>
     <p><strong><%= lesson.sport.name.capitalize %> lesson at <%= lesson.location %></strong></p>
+  <% end %>
 </div>
+
+
