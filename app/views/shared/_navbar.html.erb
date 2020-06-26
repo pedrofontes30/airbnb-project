@@ -3,10 +3,6 @@
   <%= image_tag asset_path('sunshine_ilustration.png') %>
   <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
   <!-- Search Bar -->
 
   <%= form_tag lessons_path, class: 'form-inline', method: :get do %>
@@ -17,6 +13,10 @@
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
